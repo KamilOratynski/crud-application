@@ -18,12 +18,16 @@ public class PersonService {
         return (List<Person>) personRepository.findAll();
     }
 
+    public List<Person> findByName(String name) {
+        return personRepository.findByFirstName(name);
+    }
+
     public Optional<Person> getById(Long id) {
         return personRepository.findById(id);
     }
 
-    public void deletePerson(Person person) {
-        personRepository.delete(person);
+    public void deletePerson(Long id) {
+        personRepository.deleteById(id);
     }
 
     public boolean addPerson(Person person) {
