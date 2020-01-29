@@ -1,2 +1,2 @@
 Description:
-CRUD application in Spring Boot, JPA, PostgreSQL, Lombok, Swagger
+CRUD application in Spring Boot, JPA, PostgreSQL, Lombok, Swagger.

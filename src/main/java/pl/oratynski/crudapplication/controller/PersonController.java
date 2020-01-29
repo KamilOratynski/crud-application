@@ -46,4 +46,5 @@ public class PersonController {
     public HttpStatus updatePerson(@RequestBody Person person) {
         return personService.updatePerson(person) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
     }
+
 }

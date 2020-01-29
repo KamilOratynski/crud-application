@@ -36,6 +36,8 @@ public class PersonService {
     }
 
     public boolean updatePerson(Person person) {
-        return personRepository.save(person) != null;
+        personRepository.save(person);
+        return true;
     }
+
 }
