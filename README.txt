@@ -1,7 +1,7 @@
 Description:
 CRUD person application.
 
-Method in application:
+Methods in application:
 * getAll
 * getById
 * getByName
