@@ -1,3 +1,7 @@
+/**
+ * author Kamil Oratyński
+ */
+
 Description:
 CRUD person application.
 
@@ -17,7 +21,7 @@ Technologies:
 Library:
 * Lombok
 
-Tools
+Tools:
 * IntelliJ IDEA 2019.3.1 (Ultimate Edition)
 * DBeaver
 * Swagger-UI
