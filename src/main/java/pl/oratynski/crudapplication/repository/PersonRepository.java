@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.oratynski.crudapplication.entity.Person;
 
 @Repository
-public interface PeopleRepository extends CrudRepository<Person, Long> {
+public interface PersonRepository extends CrudRepository<Person, Long> {
 }
