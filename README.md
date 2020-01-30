@@ -26,5 +26,5 @@ Tools:
 * Swagger-UI
 
 Deploy application:
-<h6>https://crud-app-swagger.herokuapp.com/swagger-ui.html</h6>
+<h4>https://crud-app-swagger.herokuapp.com/swagger-ui.html</h4>
 <img src="https://res.cloudinary.com/dvxbeoob5/image/upload/v1580401080/app_yc96nx.png">
