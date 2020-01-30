@@ -28,7 +28,7 @@ public class PersonController {
 
     @RequestMapping(value = "/person", method = RequestMethod.GET)
     public List<Person> getAll() {
-        return personService.getAllPersons();
+        return personService.getAllPeople();
     }
 
     @RequestMapping(value = "/person/{id}", method = RequestMethod.DELETE)
