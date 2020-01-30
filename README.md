@@ -1,3 +1,7 @@
+/**
+ * author Kamil Oratyński
+ */
+
 <h1>CRUD person application.</h1>
 
 Methods in application:
@@ -16,11 +20,10 @@ Technologies:
 Library:
 * Lombok
 
-Tools:
+Tools
 * IntelliJ IDEA 2019.3.1 (Ultimate Edition)
 * DBeaver
 * Swagger-UI
 
 Deploy application:
 https://crud-app-swagger.herokuapp.com/swagger-ui.html
-
