@@ -1,13 +1,12 @@
-Description:
-CRUD person application.
+<h1>CRUD person application.</h1>
 
 Methods in application:
-* getAll
-* getById
-* getByName
-* insert
-* update
-* delete
+* insert (Create)
+* getAll (Read)
+* getById (Read)
+* getByName (Read)
+* update (Update)
+* delete (Delete)
 
 Technologies:
 * Java 8
@@ -17,10 +16,11 @@ Technologies:
 Library:
 * Lombok
 
-Tools
+Tools:
 * IntelliJ IDEA 2019.3.1 (Ultimate Edition)
 * DBeaver
 * Swagger-UI
 
 Deploy application:
 https://crud-app-swagger.herokuapp.com/swagger-ui.html
+

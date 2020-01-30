@@ -1,4 +1,4 @@
-package pl.oratynski.crudapplication.swagger;
+package pl.oratynski.crudapplication.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
