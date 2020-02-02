@@ -12,37 +12,40 @@ import java.util.Optional;
 @RestController
 public class PersonController {
 
-    @Autowired
-    PersonService personService;
+    private PersonService personService;
 
-    @RequestMapping(value = "/person/{id}", method = RequestMethod.GET)
-    public @ResponseBody
-    Optional<Person> getAllPeople(@PathVariable Long id) {
+    @Autowired
+    public PersonController(PersonService personService) {
+        this.personService = personService;
+    }
+
+    @GetMapping(value = "/person/{id}")
+    public Optional<Person> getAllPeople(@PathVariable Long id) {
         return personService.getById(id);
     }
 
-    @RequestMapping(value = "/personByName/{name}", method = RequestMethod.GET)
+    @GetMapping(value = "/personByName/{name}")
     public List<Person> getPersonByName(@PathVariable String name) {
         return personService.findByName(name);
     }
 
-    @RequestMapping(value = "/person", method = RequestMethod.GET)
+    @GetMapping(value = "/person")
     public List<Person> getAll() {
         return personService.getAllPeople();
     }
 
-    @RequestMapping(value = "/person/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/person/{id}")
     public HttpStatus deletePerson(@PathVariable Long id) {
         personService.deletePerson(id);
         return HttpStatus.NO_CONTENT;
     }
 
-    @RequestMapping(value = "/person", method = RequestMethod.POST)
+    @PostMapping(value = "/person")
     public HttpStatus insertPerson(@RequestBody Person person) {
         return personService.addPerson(person) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
     }
 
-    @RequestMapping(value = "/person", method = RequestMethod.PUT)
+    @PutMapping(value = "/person")
     public HttpStatus updatePerson(@RequestBody Person person) {
         return personService.updatePerson(person) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
     }

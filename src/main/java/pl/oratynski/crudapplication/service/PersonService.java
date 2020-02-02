@@ -11,8 +11,12 @@ import java.util.Optional;
 @Service
 public class PersonService {
 
+    private PersonRepository personRepository;
+
     @Autowired
-    PersonRepository personRepository;
+    public PersonService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     public List<Person> getAllPeople() {
         return (List<Person>) personRepository.findAll();
