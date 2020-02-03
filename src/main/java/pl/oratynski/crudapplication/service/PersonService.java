@@ -1,47 +1,13 @@
 package pl.oratynski.crudapplication.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import pl.oratynski.crudapplication.entity.Person;
-import pl.oratynski.crudapplication.repository.PersonRepository;
+import pl.oratynski.crudapplication.model.Person;
 
 import java.util.List;
-import java.util.Optional;
 
-@Service
-public class PersonService {
+public interface PersonService extends CrudService<Person> {
 
-    private PersonRepository personRepository;
+    List<Person> getAllPeople();
 
-    @Autowired
-    public PersonService(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
-
-    public List<Person> getAllPeople() {
-        return (List<Person>) personRepository.findAll();
-    }
-
-    public List<Person> findByName(String name) {
-        return personRepository.findByFirstName(name);
-    }
-
-    public Optional<Person> getById(Long id) {
-        return personRepository.findById(id);
-    }
-
-    public void deletePerson(Long id) {
-        personRepository.deleteById(id);
-    }
-
-    public boolean addPerson(Person person) {
-        personRepository.save(person);
-        return true;
-    }
-
-    public boolean updatePerson(Person person) {
-        personRepository.save(person);
-        return true;
-    }
+    List<Person> findByName(String name);
 
 }
