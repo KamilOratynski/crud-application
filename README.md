@@ -5,7 +5,7 @@
 &nbsp;&nbsp;&nbsp;*/<br/>
 
 Methods in application:
-* insert (Create)
+* add (Create)
 * getAll (Read)
 * getById (Read)
 * getByName (Read)

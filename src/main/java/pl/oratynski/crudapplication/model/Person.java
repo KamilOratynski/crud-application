@@ -1,4 +1,4 @@
-package pl.oratynski.crudapplication.entity;
+package pl.oratynski.crudapplication.model;
 
 import lombok.Data;
 

@@ -2,7 +2,7 @@ package pl.oratynski.crudapplication.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.oratynski.crudapplication.entity.Person;
+import pl.oratynski.crudapplication.model.Person;
 
 import java.util.List;
 
