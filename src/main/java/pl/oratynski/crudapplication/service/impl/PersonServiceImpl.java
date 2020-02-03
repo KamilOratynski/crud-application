@@ -1,5 +1,6 @@
 package pl.oratynski.crudapplication.service.impl;
 
+import com.google.common.collect.Lists;
 import org.springframework.stereotype.Service;
 import pl.oratynski.crudapplication.model.Person;
 import pl.oratynski.crudapplication.repository.PersonRepository;
@@ -19,7 +20,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> getAllPeople() {
-        return (List<Person>) personRepository.findAll();
+        return Lists.newArrayList(personRepository.findAll());
     }
 
     @Override
