@@ -1,6 +1,7 @@
 package pl.oratynski.crudapplication.controller;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 import pl.oratynski.crudapplication.model.Person;
@@ -14,22 +15,28 @@ import java.util.Optional;
 
 public class PersonControllerTests {
 
+    private PersonService personService = new PersonServiceImpl(new InMemoryPersonRepository());
+    private PersonController controller = new PersonController(personService);
+
+    @BeforeEach
+    public void init() {
+        Person person = createPerson(1L, "Jan", "Nowak", 27);
+        personService.add(person);
+    }
+
     @Test
     public void insertPerson() {
-        Person person = createPerson(1L, "Jan", "Nowak", 15);
-        PersonController controller = getPersonController();
+        Person personExpected = createPerson(1L, "Jan", "Nowak", 27);
 
-        ResponseEntity<Person> personResponseEntity = controller.insertPerson(person);
+        ResponseEntity<Person> personResponseEntity = controller.insertPerson(personExpected);
         Person actual = personResponseEntity.getBody();
 
         Assertions.assertEquals(201, personResponseEntity.getStatusCodeValue());
-        Assertions.assertEquals(person, actual);
+        Assertions.assertEquals(personExpected, actual);
     }
 
     @Test
     public void findAllPeople() {
-        PersonController controller = getPersonController();
-
         ResponseEntity<List<Person>> personResponseEntity = controller.getAll();
         List<Person> actual = controller.getAll().getBody();
 
@@ -40,8 +47,6 @@ public class PersonControllerTests {
 
     @Test
     public void findById() {
-        PersonController controller = getPersonController();
-
         ResponseEntity<Person> idResponseEntity = controller.getById(1L);
         Person actual = controller.getById(1L).getBody();
 
@@ -53,8 +58,6 @@ public class PersonControllerTests {
 
     @Test
     public void findById_noExistId_notReturnPerson() {
-        PersonController controller = getPersonController();
-
         ResponseEntity<Person> idResponseEntity = controller.getById(2L);
         Person actual = controller.getById(2L).getBody();
 
@@ -64,8 +67,6 @@ public class PersonControllerTests {
 
     @Test
     public void findByFirstName() {
-        PersonController controller = getPersonController();
-
         ResponseEntity<List<Person>> nameResponseEntity = controller.getByName("Jan");
         List<Person> actual = controller.getByName("Jan").getBody();
 
@@ -76,8 +77,6 @@ public class PersonControllerTests {
 
     @Test
     public void findByFirstName_noExistName_notReturnPerson() {
-        PersonController controller = getPersonController();
-
         ResponseEntity<List<Person>> nameResponseEntity = controller.getByName("Kamil");
 
         Assertions.assertEquals(200, nameResponseEntity.getStatusCodeValue());
@@ -85,21 +84,11 @@ public class PersonControllerTests {
 
     @Test
     public void deletePeron() {
-        PersonController controller = getPersonController();
-
         ResponseEntity<Long> personResponseEntity = controller.deletePerson(1L);
         Long actual = personResponseEntity.getBody();
 
         Assertions.assertEquals(200, personResponseEntity.getStatusCodeValue());
         Assertions.assertEquals(1, actual);
-    }
-
-    private PersonController getPersonController() {
-        Person person = createPerson(1L, "Jan", "Nowak", 15);
-        PersonService personService = new PersonServiceImpl(new InMemoryPersonRepository());
-        personService.add(person);
-
-        return new PersonController(personService);
     }
 
     private Person createPerson(Long id, String name, String surname, int age) {
