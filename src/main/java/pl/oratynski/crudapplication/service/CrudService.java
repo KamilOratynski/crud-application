@@ -11,5 +11,4 @@ public interface CrudService<T> {
     Long delete(Long id);
 
     Optional<T> getById(Long id);
-
 }

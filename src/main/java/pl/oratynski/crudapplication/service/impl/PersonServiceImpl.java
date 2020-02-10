@@ -48,5 +48,4 @@ public class PersonServiceImpl implements PersonService {
     public Person update(Person person) {
         return personRepository.save(person);
     }
-
 }
