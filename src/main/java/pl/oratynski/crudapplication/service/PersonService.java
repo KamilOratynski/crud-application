@@ -9,5 +9,4 @@ public interface PersonService extends CrudService<Person> {
     List<Person> getAllPeople();
 
     List<Person> findByName(String name);
-
 }

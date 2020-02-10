@@ -10,5 +10,4 @@ import java.util.List;
 public interface PersonRepository extends CrudRepository<Person, Long> {
 
     List<Person> findByFirstName(String firstName);
-
 }

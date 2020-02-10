@@ -15,6 +15,7 @@ Methods in application:
 Technologies:
 * Java 8
 * Spring (Spring Boot, Spring Web, Spring JPA)
+* jUnit 5
 * PostgreSQL
 
 Library:
