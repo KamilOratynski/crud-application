@@ -46,8 +46,8 @@ public class PersonController {
         return new ResponseEntity<>(people, HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Person> updatePerson(@RequestBody Person person) {
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Person> updatePerson(@PathVariable(name = "id") Long id, @RequestBody Person person) {
         Person updatePerson = personService.update(person);
         return updatePerson != null ?
                 new ResponseEntity<>(updatePerson, HttpStatus.OK) :
