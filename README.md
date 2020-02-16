@@ -17,6 +17,7 @@ Technologies:
 * Spring (Spring Boot, Spring Web, Spring JPA)
 * jUnit 5
 * PostgreSQL
+* MockMvc
 
 Library:
 * Lombok
