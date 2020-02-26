@@ -24,7 +24,7 @@ public class PersonController {
         Person newPerson = personService.add(person);
         return newPerson != null ?
                 new ResponseEntity<>(newPerson, HttpStatus.CREATED) :
-                new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping
@@ -56,7 +56,11 @@ public class PersonController {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> deletePerson(@PathVariable(name = "id") Long id) {
-        personService.delete(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
+        return personService.getById(id)
+                .map(person -> {
+                    personService.delete(id);
+                    return new ResponseEntity<>(id, HttpStatus.OK);
+                })
+                .orElse(new ResponseEntity<>(id, HttpStatus.NOT_FOUND));
     }
 }

@@ -102,11 +102,11 @@ public class PersonControllerTestsMoc {
     }
 
     @Test
-    public void givenPerson_whenDelete_thenReturnId() throws Exception {
+    public void givenNothing_whenDelete_thenReturnId() throws Exception {
         doNothing().when(personRepository).deleteById(1L);
 
         mockMvc.perform(delete("/person/1"))
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().string("1"));
     }
 
